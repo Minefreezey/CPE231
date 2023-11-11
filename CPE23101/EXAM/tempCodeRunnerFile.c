@@ -1,0 +1,1 @@
+nt n = (int)sizeof(arr) / (int)sizeof(int);
