@@ -20,18 +20,18 @@ void bubbleSort(int* arr, int n){
 }
 
 int main(){
-    FILE* file250 = fopen("250.txt","r");
-    if (file250 == NULL){
+    FILE* file1000 = fopen("1000_random_unique_2.txt","r");
+    if (file1000 == NULL){
         return -1;
     }
     int n;
-    fscanf(file250,"%d",&n);
+    fscanf(file1000,"%d",&n);
     int arr[n];
     int i;
     for (i = 0;i<n;i++){
-        fscanf(file250, "%d", &arr[i]);
+        fscanf(file1000, "%d", &arr[i]);
     }
-    fclose(file250);
+    fclose(file1000);
     bubbleSort(arr,n);
     printarr(arr,n);
     return 0;
