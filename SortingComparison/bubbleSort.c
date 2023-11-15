@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <time.h>
 
 void printarr(int* arr, int n){
     for (int i = 0;i<n;i++){
@@ -20,19 +21,22 @@ void bubbleSort(int* arr, int n){
 }
 
 int main(){
-    FILE* file1000 = fopen("1000_random_unique_2.txt","r");
-    if (file1000 == NULL){
+    int n;
+    FILE* fp = fopen("testCases/random_unique_10000.txt","r");
+    if (fp == NULL){
         return -1;
     }
-    int n;
-    fscanf(file1000,"%d",&n);
+    fscanf(fp,"%d",&n);
     int arr[n];
     int i;
     for (i = 0;i<n;i++){
-        fscanf(file1000, "%d", &arr[i]);
+        fscanf(fp, "%d", &arr[i]);
     }
-    fclose(file1000);
+    clock_t start = clock();
     bubbleSort(arr,n);
+    clock_t end = clock();
     printarr(arr,n);
+    double time_taken = ((double)(end-start))/CLOCKS_PER_SEC;
+    printf("Time taken: %f\n",time_taken);
     return 0;
 }
